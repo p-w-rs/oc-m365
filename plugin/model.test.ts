@@ -3,8 +3,8 @@ import assert from "node:assert/strict"
 import { adminRequest, classifyGraph, defaultEffect, explainSignInError, graphCapabilities, normalizeAccount, requestedScopes } from "./model.js"
 
 test("accounts: defaults, presets and validation", () => {
-  const account = normalizeAccount({ id: "work", tenant: "asirobots.com", email: "Pat@ACME.example" }, new Date(0))
-  assert.deepEqual(account, { id: "work", auth: "browser", tenant: "asirobots.com", preset: "full", email: "pat@acme.example", updatedAt: "1970-01-01T00:00:00.000Z" })
+  const account = normalizeAccount({ id: "work", tenant: "contoso.com", email: "Pat@ACME.example" }, new Date(0))
+  assert.deepEqual(account, { id: "work", auth: "browser", tenant: "contoso.com", preset: "full", email: "pat@acme.example", updatedAt: "1970-01-01T00:00:00.000Z" })
   assert.ok(requestedScopes(account).includes("Mail.Send"))
   assert.ok(requestedScopes(account).includes("offline_access"))
   assert.ok(!requestedScopes(normalizeAccount({ id: "r", tenant: "x.com", preset: "read" })).includes("Mail.Send"))
@@ -40,7 +40,7 @@ test("defaults: reads and own changes allowed; sending, sharing, deletes, admin 
 })
 
 test("sign-in errors explained; admin request names the app and permissions", () => {
-  const account = normalizeAccount({ id: "w", tenant: "asirobots.com" })
+  const account = normalizeAccount({ id: "w", tenant: "contoso.com" })
   assert.match(explainSignInError("access_denied", "AADSTS90094: Admin approval required", account), /requires an administrator.*Microsoft Graph Command Line Tools.*14d82eec/)
   assert.match(adminRequest(account), /Mail\.Send.*Delegated only/)
   assert.match(adminRequest(normalizeAccount({ id: "w", tenant: "x.com", clientId: "11111111-2222-3333-4444-555555555555" })), /app 11111111/)

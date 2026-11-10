@@ -1,10 +1,18 @@
 {
   "name": "oc-m365",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "license": "UNLICENSED",
   "type": "module",
   "description": "Microsoft 365 for OpenCode agents: Microsoft sign-in, Microsoft Graph for mail, calendar, Teams, OneDrive and SharePoint, permissions where sending and sharing ask, and built-in know-how",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p-w-rs/oc-m365.git"
+  },
+  "homepage": "https://github.com/p-w-rs/oc-m365#readme",
+  "bugs": {
+    "url": "https://github.com/p-w-rs/oc-m365/issues"
+  },
   "exports": {
     ".": "./plugin/index.ts",
     "./gui-experimental": "./dist/gui-experimental.cjs"
@@ -40,7 +48,7 @@
   },
   "dependencies": {
     "jsonc-parser": "3.3.1",
-    "oc-secure-kit": "file:vendor/oc-secure-kit-0.7.0.tgz"
+    "oc-secure-kit": "file:vendor/oc-secure-kit-1.0.0.tgz"
   },
   "devDependencies": {
     "@opencode/plugin": "2.2.6",
