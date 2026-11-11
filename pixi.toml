@@ -1,6 +1,6 @@
 [workspace]
 name = "oc-m365"
-version = "1.0.2"
+version = "1.0.3"
 description = "Microsoft 365 (Outlook mail and calendar, Teams, OneDrive, SharePoint) for OpenCode agents via Microsoft Graph"
 channels = ["conda-forge"]
 platforms = ["osx-arm64", "osx-64", "linux-64", "linux-aarch64"]
